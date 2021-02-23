@@ -13,7 +13,7 @@ function Articles({ articles }) {
                 </thead>
                 <tbody>
                 {articles.map(article => (
-                  <tr data-testid="article" key="article-index">
+                  <tr data-testid="article" key={`article-index-${article.title}-${article.upvotes}-${article.date}`}>
                     <td data-testid="article-title">{article.title}</td>
                     <td data-testid="article-upvotes">{article.upvotes}</td>
                     <td data-testid="article-date">{article.date}</td>
