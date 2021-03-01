@@ -1,7 +1,11 @@
 import React from 'react';
 
-function Articles() {
-
+/**
+ *
+ * @param {{articles: {title: string, upvotes: number, date: string}[] }} props
+ */
+function Articles(props) {
+    // console.log('props', props)
     return (
         <div className="card w-50 mx-auto">
             <table>
@@ -13,11 +17,13 @@ function Articles() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr data-testid="article" key="article-index">
-                    <td data-testid="article-title">Article 1 title</td>
-                    <td data-testid="article-upvotes">Article 1 title</td>
-                    <td data-testid="article-date">Article 1 title</td>
+                {props.articles?.map((value, index) => {
+                    return <tr data-testid="article" key={"article-index-" + index}>
+                    <td data-testid="article-title">{value.title}</td>
+                    <td data-testid="article-upvotes">{value.upvotes}</td>
+                    <td data-testid="article-date">{value.date}</td>
                 </tr>
+                })}
                 </tbody>
             </table>
         </div>
